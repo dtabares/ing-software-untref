@@ -26,14 +26,20 @@ public class Juego {
 					resultado = "Gana JUGADOR1";
 				}
 			}
-			else{
-				if(jugador1.getFigura().getNombre().equals("PAPEL")){
-					if (jugador2.getFigura().getNombre().equals("PIEDRA")){
-						resultado = "Gana JUGADOR1";
-					}
-					else{
-						resultado = "Gana JUGADOR2";
-					}
+			if(jugador1.getFigura().getNombre().equals("PAPEL")){
+				if (jugador2.getFigura().getNombre().equals("PIEDRA")){
+					resultado = "Gana JUGADOR1";
+				}
+				else{
+					resultado = "Gana JUGADOR2";
+				}
+			}
+			if (jugador1.getFigura().getNombre().equals("TIJERA")){
+				if (jugador2.getFigura().getNombre().equals("PIEDRA")){
+					resultado = "Gana JUGADOR2";
+				}
+				else{
+					resultado = "Gana JUGADOR1";
 				}
 			}
 		}
