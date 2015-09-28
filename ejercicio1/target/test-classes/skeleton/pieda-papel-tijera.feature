@@ -34,3 +34,8 @@ Feature: PiedaPapelOTijera
     Given jugador1 juega TIJERA
     When jugador2 juega PIEDRA
     Then gana jugador2
+
+  Scenario: Tijera vs Tijera
+    Given jugador1 juega TIJERA
+    When jugador2 juega TIJERA
+    Then hay empate
