@@ -19,3 +19,8 @@ Feature: PiedaPapelOTijera
     Given jugador1 juega PIEDRA
     When jugador2 juega TIJERA
     Then gana jugador1
+
+  Scenario: Papel vs Piedra
+    Given jugador1 juega PAPEL
+    When jugador2 juega PIEDRA
+    Then gana jugador1
