@@ -47,6 +47,19 @@ public class Stepdefs {
     	this.juego = new Juego(this.jugador1,this.jugador2);
     	Assert.assertEquals("EMPATE", this.juego.jugar());
     }
+    
+    @Then("^gana jugador(\\d+)$")
+    public void gana_jugador(int numJugador) {
+    	this.juego = new Juego(this.jugador1,this.jugador2);
+    	if(numJugador == 1){
+    		Assert.assertEquals("Gana JUGADOR1", this.juego.jugar());
+    	}
+    	else{
+    		Assert.assertEquals("Gana JUGADOR2", this.juego.jugar());
+    	}
+    	
+    }
+
 
 
 }

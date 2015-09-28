@@ -17,6 +17,19 @@ public class Juego {
 			resultado = "EMPATE";
 			
 		}
+		else{
+			if (jugador1.getFigura().getNombre().equals("PIEDRA")){
+				if (jugador2.getFigura().getNombre().equals("PAPEL")){
+					resultado = "Gana JUGADOR2";
+				}
+				else{
+					resultado = "Gana JUGADOR1";
+				}
+			}
+		}
+		
+
+
 		return resultado;
 		
 	}
