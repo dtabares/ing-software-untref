@@ -20,7 +20,7 @@ public class JugadaTest {
 		Assert.assertArrayEquals(estado, jugada.getEstado());
 	}
 	
-/*	@Test
+	@Test
 	public void cuandoLaPalabraEsAutoYArriesgoUnaLetraAMinisculaElEstadoDebeSeraAYTresAsteriscos(){
 		Jugada jugada = new Jugada();
 		jugada.inicializarEstado("auto");
@@ -34,6 +34,6 @@ public class JugadaTest {
 		
 		Assert.assertArrayEquals(estado, jugada.getEstado());
 		
-	}*/
+	}
 
 }

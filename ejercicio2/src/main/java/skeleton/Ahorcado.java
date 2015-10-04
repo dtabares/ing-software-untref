@@ -19,12 +19,10 @@ public class Ahorcado {
 		jugada.inicializarEstado(palabraSecreta);
 	}
 	
-/*	public void arriesgarLetra(char letra){
-		jugada.arriesgarLetra(letra){
-			
-		}
+	public void arriesgarLetra(char letra){
+		jugada.arriesgarLetra(letra);
 	}
-	
+	/*	
 	public String getEstadoPalabraSecreta(){
 		return jugada.getEstadoPalabraSecreta();
 	}

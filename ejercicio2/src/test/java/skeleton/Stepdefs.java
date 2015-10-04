@@ -19,7 +19,7 @@ public class Stepdefs {
 	
 	@When("^arriesgo \"(.*?)\"$")
 	public void arriesgo(char letra) {
-		//ahorcado.arriesgarLetra(letra);
+		ahorcado.arriesgarLetra(letra);
 	}
 
 
