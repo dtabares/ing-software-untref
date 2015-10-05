@@ -1,5 +1,7 @@
 package skeleton;
 
+import java.util.Arrays;
+
 public class Jugada {
 	private char[] estado;
 	private char[] palabraSecreta;
@@ -19,7 +21,13 @@ public class Jugada {
 	}
 	
 	public char[] getEstado(){
-		return estado;
+		if(Arrays.equals(this.palabraSecreta, this.estado)){
+			return "Ganaste".toCharArray();
+		}
+		else{
+			return this.estado;
+		}
+		
 	}
 	
 	public void arriesgarLetra(char letra){
