@@ -20,12 +20,17 @@ public class Jugada {
 		this.palabraSecreta = palabraSecreta.toCharArray();
 	}
 	
-	public char[] getEstado(){
+	public String getEstado(){
 		if(Arrays.equals(this.palabraSecreta, this.estado)){
-			return "Ganaste".toCharArray();
+			return "Ganaste";
 		}
 		else{
-			return this.estado;
+			if (this.vida>0){
+				return new String(this.estado);
+			}
+			else{
+				return "Ahorcado";
+			}
 		}
 		
 	}

@@ -11,13 +11,10 @@ public class JugadaTest {
 	public void cuandoSeteamosLaPalabraSecretaComoAutoElEstadoDebeSer4Astericos() {
 		Jugada jugada = new Jugada();
 		jugada.inicializarEstado("auto");
-		char[] estado = new char[4];
-		estado[0] = '*';
-		estado[1] = '*';
-		estado[2] = '*';
-		estado[3] = '*';
+		String estado = "****";
 		
-		Assert.assertArrayEquals(estado, jugada.getEstado());
+		
+		Assert.assertEquals(estado, jugada.getEstado());
 	}
 	
 	@Test
@@ -26,13 +23,9 @@ public class JugadaTest {
 		jugada.inicializarEstado("auto");
 		jugada.arriesgarLetra('a');
 		
-		char[] estado = new char[4];
-		estado[0] = 'a';
-		estado[1] = '*';
-		estado[2] = '*';
-		estado[3] = '*';
+		String estado = "a***";
 		
-		Assert.assertArrayEquals(estado, jugada.getEstado());
+		Assert.assertEquals(estado, jugada.getEstado());
 		
 	}
 	
@@ -53,8 +46,39 @@ public class JugadaTest {
 		jugada.inicializarEstado("auto");
 		jugada.arriesgarLetra('A');
 		
-		
 		Assert.assertEquals(7, jugada.getVidas());
+		
+	}
+	
+	@Test
+	public void cuandoLaPalabraEsAutoYArriesgoConLetrasEquivocadas7VecesIncorrectamenteLasVidasDebenSer0(){
+		Jugada jugada = new Jugada();
+		jugada.inicializarEstado("auto");
+		jugada.arriesgarLetra('q');
+		jugada.arriesgarLetra('w');
+		jugada.arriesgarLetra('e');
+		jugada.arriesgarLetra('r');
+		jugada.arriesgarLetra('y');
+		jugada.arriesgarLetra('i');
+		jugada.arriesgarLetra('p');
+		
+		Assert.assertEquals(0, jugada.getVidas());
+		
+	}
+	
+	@Test
+	public void cuandoLaPalabraEsAutoYArriesgoConLetrasEquivocadas7VecesIncorrectamenteElEstadoDebeSerAhorcado(){
+		Jugada jugada = new Jugada();
+		jugada.inicializarEstado("auto");
+		jugada.arriesgarLetra('q');
+		jugada.arriesgarLetra('w');
+		jugada.arriesgarLetra('e');
+		jugada.arriesgarLetra('r');
+		jugada.arriesgarLetra('y');
+		jugada.arriesgarLetra('i');
+		jugada.arriesgarLetra('p');
+		
+		Assert.assertEquals("Ahorcado", jugada.getEstado());
 		
 	}
 
