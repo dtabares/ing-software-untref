@@ -11,7 +11,7 @@ public class Stepdefs {
 	
 	Ahorcado ahorcado;
 	
-	@Given("^la palabra secreta es (.*)$")
+	@Given("^la palabra secreta es \"(.*)\"$")
 	public void seteoLaPalabraSecreta(String palabraSecreta) {
 		ahorcado = new Ahorcado();
 		ahorcado.setPalabraSecreta(palabraSecreta);

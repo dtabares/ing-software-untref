@@ -35,11 +35,16 @@ public class Jugada {
 	 */
 	private boolean evaluar(char letra){
 		boolean modifico = false;
-		
 		for(int i=0; i < this.palabraSecreta.length; i++){
-			if(palabraSecreta[i] == letra){
+			if(palabraSecreta[i] == Character.toLowerCase(letra) || palabraSecreta[i] == Character.toUpperCase(letra)){
 				modifico = true;
-				estado[i] = letra;
+				if(Character.isUpperCase(palabraSecreta[i])){
+					estado[i] = Character.toUpperCase(letra);
+				}
+				else{
+					estado[i] = Character.toLowerCase(letra);
+				}
+				
 			}
 		}
 		
