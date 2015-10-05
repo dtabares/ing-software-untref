@@ -17,12 +17,12 @@ public class Stepdefs {
     public void jugador1_juega(String nombreFigura) {		
     	this.jugador1 = new Jugador("JUGADOR1");
     	switch(nombreFigura){
-    	case "PIEDRA":	this.jugador1.elegirFigura(new Piedra());
-    					break;
-    	case "PAPEL":	this.jugador1.elegirFigura(new Papel());
-    					break;
-    	case "TIJERA":	this.jugador1.elegirFigura(new Tijera());
-						break;
+	    	case "PIEDRA":	this.jugador1.elegirFigura(new Piedra());
+	    					break;
+	    	case "PAPEL":	this.jugador1.elegirFigura(new Papel());
+	    					break;
+	    	case "TIJERA":	this.jugador1.elegirFigura(new Tijera());
+							break;
     	}
     	
     }
@@ -31,12 +31,12 @@ public class Stepdefs {
     public void jugador2_juega(String nombreFigura) {
     	this.jugador2 = new Jugador("JUGADOR2");
     	switch(nombreFigura){
-    	case "PIEDRA":	this.jugador2.elegirFigura(new Piedra());
-    					break;
-    	case "PAPEL":	this.jugador2.elegirFigura(new Papel());
-    					break;
-    	case "TIJERA":	this.jugador2.elegirFigura(new Tijera());
-						break;
+	    	case "PIEDRA":	this.jugador2.elegirFigura(new Piedra());
+	    					break;
+	    	case "PAPEL":	this.jugador2.elegirFigura(new Papel());
+	    					break;
+	    	case "TIJERA":	this.jugador2.elegirFigura(new Tijera());
+							break;
     	}
 
     }
