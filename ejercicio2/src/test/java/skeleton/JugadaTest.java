@@ -35,5 +35,16 @@ public class JugadaTest {
 		Assert.assertArrayEquals(estado, jugada.getEstado());
 		
 	}
+	
+	@Test
+	public void cuandoLaPalabraEsAutoYArriesgoUnaLetraAMinisculaLasVidasDebenSeguirSiendo7(){
+		Jugada jugada = new Jugada();
+		jugada.inicializarEstado("auto");
+		jugada.arriesgarLetra('a');
+		
+		
+		Assert.assertEquals(7, jugada.getVidas());
+		
+	}
 
 }

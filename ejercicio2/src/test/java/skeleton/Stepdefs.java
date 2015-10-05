@@ -21,10 +21,17 @@ public class Stepdefs {
 	public void arriesgo(char letra) {
 		ahorcado.arriesgarLetra(letra);
 	}
-
-
-    
-
+	
+	@Then("^estado es \"(.*?)\"$")
+	public void estado_es(String estado) {
+		String estadoEsperado = "a***";
+		Assert.assertEquals(estadoEsperado, ahorcado.getEstado());
+	}
+	
+	@Then("^me quedan (\\d+) vidas$")
+	public void me_quedan_vidas(int cantidadDeVidas)  {
+		Assert.assertEquals(7, ahorcado.getVidas());
+	}
 
 
 }

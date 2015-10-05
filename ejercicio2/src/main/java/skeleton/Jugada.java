@@ -45,5 +45,9 @@ public class Jugada {
 		
 		return modifico;
 	}
+	
+	public int getVidas(){
+		return this.vida;
+	}
 
 }

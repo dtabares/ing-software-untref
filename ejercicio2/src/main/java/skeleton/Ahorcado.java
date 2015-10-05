@@ -22,14 +22,14 @@ public class Ahorcado {
 	public void arriesgarLetra(char letra){
 		jugada.arriesgarLetra(letra);
 	}
-	/*	
-	public String getEstadoPalabraSecreta(){
-		return jugada.getEstadoPalabraSecreta();
+		
+	public String getEstado(){
+		return new String(jugada.getEstado());
 	}
 	
-	public int getEstadoVidas(){
-		return jugada.getEstadoVidas();
-	}*/
+	public int getVidas(){
+		return jugada.getVidas();
+	}
 	
 
 	
