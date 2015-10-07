@@ -3,10 +3,10 @@ package skeleton;
 public class Ahorcado {
 	
 	private String palabraSecreta;
-	private Jugada jugada;
+	private Partida partida;
 	
 	public Ahorcado(){
-		this.jugada = new Jugada();
+		this.partida = new Partida();
 	}
 	
 
@@ -16,19 +16,19 @@ public class Ahorcado {
 
 	public void setPalabraSecreta(String palabraSecreta) {
 		this.palabraSecreta = palabraSecreta;
-		jugada.inicializarEstado(palabraSecreta);
+		partida.inicializarEstado(palabraSecreta);
 	}
 	
 	public void arriesgarLetra(char letra){
-		jugada.arriesgarLetra(letra);
+		partida.arriesgarLetra(letra);
 	}
 		
 	public String getEstado(){
-		return new String(jugada.getEstado());
+		return new String(partida.getEstado());
 	}
 	
 	public int getVidas(){
-		return jugada.getVidas();
+		return partida.getVidas();
 	}
 	
 

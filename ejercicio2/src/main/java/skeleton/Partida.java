@@ -2,12 +2,12 @@ package skeleton;
 
 import java.util.Arrays;
 
-public class Jugada {
+public class Partida {
 	private char[] estado;
 	private char[] palabraSecreta;
 	private int vida;
 	
-	public Jugada(){
+	public Partida(){
 		this.vida = 7;
 	}
 	
