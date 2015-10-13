@@ -14,27 +14,27 @@ public class Stepdefs {
 	
 	
 	@Given("^la posicion \\((.*?),(\\d+)\\) del mapa esta libre$")
-	public void la_posicion_C_esta_libre(char arg1, int arg2) {
+	public void la_posicion_esta_libre(char posX, int posY) {
 		batallaNaval = new BatallaNaval();
 		Assert.assertEquals(EstadoPosicionamiento.Libre,
-				batallaNaval.getEstadoPosicion(arg1, arg2));
+				batallaNaval.getEstadoPosicion(posX, posY));
 	}
 
 	@Given("^la posicion \\((.*?),(\\d+)\\) esta libre y la posicion \\((.*?),(\\d+)\\) esta libre$")
-	public void la_posicion_C_esta_libre_y_la_posicion_C_esta_libre(char arg1,
-			int arg2, char arg3, int arg4) {
+	public void la_posicion_esta_libre_y_la_posicion_esta_libre(char posX1,
+			int posY1, char posX2, int posY2) {
 		batallaNaval = new BatallaNaval();
 		Assert.assertEquals(EstadoPosicionamiento.Libre,
-				batallaNaval.getEstadoPosicion(arg1, arg2));
+				batallaNaval.getEstadoPosicion(posX1, posY1));
 		Assert.assertEquals(EstadoPosicionamiento.Libre,
-				batallaNaval.getEstadoPosicion(arg3, arg4));
+				batallaNaval.getEstadoPosicion(posX2, posY2));
 
 	}
 
 	@Given("^la posicion \\((.*?),(\\d+)\\) esta ocupada$")
-	public void la_posicion_C_esta_ocupada(char arg1, int arg2) {
+	public void la_posicion_esta_ocupada(char posX, int posY) {
 		batallaNaval = new BatallaNaval();
-		batallaNaval.posicionarBarco("destructor", arg1, arg2, "horizontal");
+		batallaNaval.posicionarBarco("destructor", posX, posY, "horizontal");
 	}
 
 	@Given("^el tablero es de 10 x 10$")
@@ -43,22 +43,22 @@ public class Stepdefs {
 	}
 	
 	@Given("^la posicion \\((.*?),(\\d+)\\) del mapa tiene un acorazado$")
-	public void la_posicion_C_del_mapa_tiene_un_acorazado(char arg1, int arg2) {
+	public void la_posicion_del_mapa_tiene_un_acorazado(char posX, int posY) {
 		batallaNaval = new BatallaNaval();
-		batallaNaval.posicionarBarco("acorazado", arg1, arg2, "horizontal");
+		batallaNaval.posicionarBarco("acorazado", posX, posY, "horizontal");
 	}
 
 
 	@When("^jugador posiciona la figura \"(.*?)\" en la posicion \\((.*?),(\\d+)\\) de forma \"(.*?)\"$")
-	public void jugador_posiciona_la_figura_en_la_posicion_C_de_forma(
-			String arg1, char arg2, int arg3, String arg4) {
-		estadoPosicionamiento = batallaNaval.posicionarBarco(arg1, arg2, arg3,
-				arg4);
+	public void jugador_posiciona_la_figura_en_la_posicion_de_forma(
+			String tipoDeBarco, char posX, int posY, String formaDePosicionar) {
+		estadoPosicionamiento = batallaNaval.posicionarBarco(tipoDeBarco, posX, posY,
+				formaDePosicionar);
 	}
 	
 	@When("^realizo un disparo a la posicion \\((.*?),(\\d+)\\)$")
-	public void realizo_un_disparo_a_la_posicion_C(char arg1, int arg2){
-		estadoDisparo = batallaNaval.disparar(arg1,arg2);
+	public void realizo_un_disparo_a_la_posicion(char posX, int posY){
+		estadoDisparo = batallaNaval.disparar(posX,posY);
 	}
 
 
