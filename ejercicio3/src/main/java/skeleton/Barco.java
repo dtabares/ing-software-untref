@@ -4,7 +4,6 @@ public abstract class Barco {
 
 	protected int longitud;
 	protected int disparosRecibidos;
-	protected EstadoBarco estado;
 	
 	
 	protected int getLongitud() {
