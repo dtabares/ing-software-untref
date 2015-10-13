@@ -4,29 +4,12 @@ import java.util.HashMap;
 
 public class Mapa {
 	
-	private int[][] tablero;
 	private char[] posicionEnEjeX;
 	private HashMap<Posicion, Barco> mapaDeBarcos;
 	
 	public Mapa(){
 		this.inicializarPosicionEnEjeX();
-		this.inicializarTablero();
 		this.mapaDeBarcos = new HashMap<>();
-	}
-	
-	/*
-	 * @El Tablero contiene un 0 en la posicion si esta vacio o disponible y un
-	 * 1 si esta ocupado.
-	 * Esta funcion lo inicia poniendo todo en 0.
-	 */
-	private void inicializarTablero() {
-		this.tablero = new int[10][10];
-		for (int i=0; i < this.tablero.length;i++){
-			for (int j=0; j < this.tablero[i].length;j++){
-				this.tablero[i][j] = 0;
-			}
-		}
-		
 	}
 
 	private void inicializarPosicionEnEjeX(){
@@ -45,25 +28,14 @@ public class Mapa {
 
 	public EstadoPosicionamiento getEstadoPosicion(char x, int y){
 		int posEnX = this.getPosicionEjeX(x);
-		if (estaDentroDelRango(posEnX,y)){
-			
-			if(this.tablero[posEnX][y] == 0){
-				return EstadoPosicionamiento.Libre;
-			}
-			else{
-				return EstadoPosicionamiento.Ocupado;
-			}
-		}
-		else{
-			return EstadoPosicionamiento.FueraDelMapa;
-		}
+		return this.getEstadoPosicion(posEnX, y);
 		
 	}
 	
 	private EstadoPosicionamiento getEstadoPosicion(int x, int y){
 		if (estaDentroDelRango(x,y)){
-			
-			if(this.tablero[x][y] == 0){
+			Posicion posicion = new Posicion(x, y);
+			if(this.mapaDeBarcos.get(posicion) == null){
 				return EstadoPosicionamiento.Libre;
 			}
 			else{
@@ -90,7 +62,6 @@ public class Mapa {
 
 
 	private void agregarBarco(int x, int y, Barco barco) {
-			this.tablero[x][y] = 1;	
 			this.mapaDeBarcos.put(new Posicion(x, y), barco);
 	}
 	
