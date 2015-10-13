@@ -17,11 +17,11 @@ public class BatallaNaval {
 		Barco barco = fabricaDeBarcos.getBarco(tipoDeBarco);
 		
 		if(formaPosicionamiento.equalsIgnoreCase("horizontal")){
-			resultado = this.mapa.posicionarBarcoDeFormaHorizontal(barco, coordenadaEnX1, coordenadaEnY1);
+			resultado = this.mapa.posicionarBarcoDeFormaHorizontal(barco, coordenadaEnX1, coordenadaEnY1 - 1 );
 		}
 		else{
 			if(formaPosicionamiento.equalsIgnoreCase("vertical")){
-				resultado = this.mapa.posicionarBarcoDeFormaVertical(barco, coordenadaEnX1, coordenadaEnY1);
+				resultado = this.mapa.posicionarBarcoDeFormaVertical(barco, coordenadaEnX1, coordenadaEnY1 - 1);
 			}
 			else{
 				return null;
@@ -33,7 +33,7 @@ public class BatallaNaval {
 	}
 	
 	public EstadoPosicionamiento getEstadoPosicion(char posX, int posY){
-		return mapa.getEstadoPosicion(posX, posY);
+		return mapa.getEstadoPosicion(posX, posY - 1);
 	}
 
 }

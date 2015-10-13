@@ -14,3 +14,8 @@ Feature: PosicionarFigura
     Given la posicion (C,5) esta ocupada
     When jugador posiciona la figura "destructor" en la posicion (B,5) de forma "horizontal"
     Then no se puede posicionar un barco en una casilla ocupada
+
+  Scenario: No se puede posicionar un barco en una posición fuera del tablero
+    Given el tablero es de 10 x 10
+    When jugador posiciona la figura "destructor" en la posicion (C,11) de forma "horizontal"
+    Then la posicion elegida no pertenece al tablero

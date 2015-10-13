@@ -25,6 +25,12 @@ public class Stepdefs {
 		batallaNaval = new BatallaNaval();
 		batallaNaval.posicionarBarco("destructor", arg1, arg2, "horizontal");
 	}
+	
+	@Given("^el tablero es de 10 x 10$")
+	public void tablero_es_de_x() {
+		batallaNaval = new BatallaNaval();
+	}
+
 
 	
 	@When("^jugador posiciona la figura \"(.*?)\" en la posicion \\((.*?),(\\d+)\\) de forma \"(.*?)\"$")
@@ -42,6 +48,12 @@ public class Stepdefs {
 	public void no_se_puede_posicionar_un_barco_en_una_casilla_ocupada() {
 		Assert.assertEquals(EstadoPosicionamiento.Ocupado, estadoPosicionamiento);
 	}
+	
+	@Then("^la posicion elegida no pertenece al tablero$")
+	public void la_posicion_elegida_no_pertenece_al_tablero() {
+		Assert.assertEquals(EstadoPosicionamiento.FueraDelMapa, estadoPosicionamiento);
+	}
+
 
 
 
