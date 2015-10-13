@@ -45,7 +45,7 @@ public class Mapa {
 
 	public EstadoPosicionamiento getEstadoPosicion(char x, int y){
 		int posEnX = this.getPosicionEjeX(x);
-		if (posEnX < 10 && y < 10){
+		if (estaDentroDelRango(posEnX,y)){
 			
 			if(this.tablero[posEnX][y] == 0){
 				return EstadoPosicionamiento.Libre;
@@ -61,7 +61,7 @@ public class Mapa {
 	}
 	
 	private EstadoPosicionamiento getEstadoPosicion(int x, int y){
-		if (x < 10 && y < 10){
+		if (estaDentroDelRango(x,y)){
 			
 			if(this.tablero[x][y] == 0){
 				return EstadoPosicionamiento.Libre;
@@ -174,7 +174,7 @@ public class Mapa {
 	}
 	
 	private boolean estaDentroDelRango(int x, int y){
-		if (x>10 || x<1 || y>10||y<1){
+		if (x>9 || x<0 || y>9||y<0){
 			return false;
 		}
 		else{
