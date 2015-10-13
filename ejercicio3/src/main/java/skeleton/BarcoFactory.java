@@ -12,6 +12,10 @@ public class BarcoFactory {
 			return new Acorazado();
 		}
 		
+		if(tipoDeBarco.equalsIgnoreCase("lancha")){
+			return new Lancha();
+		}
+		
 		return null;
 	}
 

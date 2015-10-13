@@ -42,7 +42,7 @@ public class Mapa {
 	}
 
 	public EstadoPosicionamiento getEstadoPosicion(char x, int y){
-		int posEnX = this.getPosX(x);
+		int posEnX = this.getPosicionEjeX(x);
 		if (posEnX < 10 && y < 10){
 			
 			if(this.tablero[posEnX][y] == 0){
@@ -75,7 +75,7 @@ public class Mapa {
 	}
 	
 
-	private int getPosX(char x){
+	private int getPosicionEjeX(char x){
 		int posicion = -1;
 		for(int i=0; i<this.posicionEnEjeX.length;i++){
 			if(Character.toUpperCase(x) == this.posicionEnEjeX[i]){
@@ -92,7 +92,7 @@ public class Mapa {
 	}
 	
 	public EstadoPosicionamiento posicionarBarcoDeFormaHorizontal(Barco barco, char posX, int posY){
-		int posicionInicialEnEjeX = this.getPosX(posX);
+		int posicionInicialEnEjeX = this.getPosicionEjeX(posX);
 		int posicionEnEjeXAuxiliar = posicionInicialEnEjeX;
 		int longitudBarco = barco.getLongitud();
 		EstadoPosicionamiento estadoPosicionamiento;
@@ -115,7 +115,7 @@ public class Mapa {
 	}
 	
 	public EstadoPosicionamiento posicionarBarcoDeFormaVertical(Barco barco, char posX, int posY){
-		int x = this.getPosX(posX);
+		int x = this.getPosicionEjeX(posX);
 		int posicionInicialEnEjeY = posY;
 		int posicionAuxiliarEnEjeY = posicionInicialEnEjeY;
 		int longitudBarco = barco.getLongitud();
@@ -138,7 +138,4 @@ public class Mapa {
 		
 		return EstadoPosicionamiento.OK;
 	}
-	
-	
-
 }
