@@ -20,6 +20,13 @@ public class Stepdefs {
 	    
 	}
 	
+	@Given("^la posicion \\((.*?),(\\d+)\\) esta ocupada$")
+	public void la_posicion_C_esta_ocupada(char arg1, int arg2) {
+		batallaNaval = new BatallaNaval();
+		batallaNaval.posicionarBarco("destructor", arg1, arg2, "horizontal");
+	}
+
+	
 	@When("^jugador posiciona la figura \"(.*?)\" en la posicion \\((.*?),(\\d+)\\) de forma \"(.*?)\"$")
 	public void jugador_posiciona_la_figura_en_la_posicion_C_de_forma(String arg1, char arg2, int arg3, String arg4) {
 		estadoPosicionamiento = batallaNaval.posicionarBarco(arg1, arg2, arg3, arg4);
@@ -30,6 +37,12 @@ public class Stepdefs {
 		
 		Assert.assertEquals(EstadoPosicionamiento.OK, estadoPosicionamiento);
 	}
+	
+	@Then("^no se puede posicionar un barco en una casilla ocupada$")
+	public void no_se_puede_posicionar_un_barco_en_una_casilla_ocupada() {
+		Assert.assertEquals(EstadoPosicionamiento.Ocupado, estadoPosicionamiento);
+	}
+
 
 
 
