@@ -8,6 +8,10 @@ public class BarcoFactory {
 			return new Destructor();
 		}
 		
+		if(tipoDeBarco.equalsIgnoreCase("acorazado")){
+			return new Acorazado();
+		}
+		
 		return null;
 	}
 
