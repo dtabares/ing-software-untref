@@ -147,12 +147,15 @@ public class Mapa {
 	}
 	
 	public EstadoDisparo recibirDisparo(char x, int y){
-		if(this.estaDentroDelRango(this.getPosicionEjeX(x), y)){
-			if (this.getBarcoAtPos(new Posicion(this.getPosicionEjeX(x), y)) == null){
+		Barco barco;
+		int posX = this.getPosicionEjeX(x);
+		if(this.estaDentroDelRango(posX, y)){
+			barco = this.getBarcoAtPos(new Posicion(posX, y));
+			if (barco == null){
 				return EstadoDisparo.Agua;
 			}
 			else{
-				return this.evaluarDanio(this.getBarcoAtPos(new Posicion(this.getPosicionEjeX(x), y)));
+				return this.evaluarDanio(barco);
 			}
 		}
 		else{

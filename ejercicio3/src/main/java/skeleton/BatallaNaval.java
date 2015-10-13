@@ -37,8 +37,8 @@ public class BatallaNaval {
 	}
 
 
-	public EstadoDisparo disparar(char arg1, int arg2) {
-		return mapa.recibirDisparo(arg1, arg2);
+	public EstadoDisparo disparar(char arg1, int posY) {
+		return mapa.recibirDisparo(arg1, posY -1);
 	}
 
 }

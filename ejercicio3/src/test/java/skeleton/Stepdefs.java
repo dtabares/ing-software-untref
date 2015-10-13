@@ -41,6 +41,13 @@ public class Stepdefs {
 	public void tablero_es_de_x() {
 		batallaNaval = new BatallaNaval();
 	}
+	
+	@Given("^la posicion \\((.*?),(\\d+)\\) del mapa tiene un acorazado$")
+	public void la_posicion_C_del_mapa_tiene_un_acorazado(char arg1, int arg2) {
+		batallaNaval = new BatallaNaval();
+		batallaNaval.posicionarBarco("acorazado", arg1, arg2, "horizontal");
+	}
+
 
 	@When("^jugador posiciona la figura \"(.*?)\" en la posicion \\((.*?),(\\d+)\\) de forma \"(.*?)\"$")
 	public void jugador_posiciona_la_figura_en_la_posicion_C_de_forma(
@@ -82,6 +89,12 @@ public class Stepdefs {
 	public void el_resultado_es_Disparo_Fuera_del_Tablero_No_permitido() {
 		Assert.assertEquals(EstadoDisparo.FueraDeRango, estadoDisparo);
 	}
+	
+	@Then("^el resultado es Tocado$")
+	public void el_resultado_es_Tocado() {
+		Assert.assertEquals(EstadoDisparo.Tocado, estadoDisparo);
+	}
+
 
 
 }
