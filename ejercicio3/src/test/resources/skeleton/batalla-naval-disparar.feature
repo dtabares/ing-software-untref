@@ -14,3 +14,9 @@ Feature: Disparar
     Given la posicion (C,5) del mapa tiene un acorazado
     When realizo un disparo a la posicion (C,5)
     Then el resultado es Tocado
+
+  Scenario: Disparo en una posicion con un barco y lo hundo
+    Given la posicion (C,5) del mapa tiene un acorazado
+    When realizo un disparo a la posicion (C,5)
+    And realizo un disparo a la posicion (D,5)
+    Then el resultado es Hundido

@@ -94,6 +94,12 @@ public class Stepdefs {
 	public void el_resultado_es_Tocado() {
 		Assert.assertEquals(EstadoDisparo.Tocado, estadoDisparo);
 	}
+	
+	@Then("^el resultado es Hundido$")
+	public void el_resultado_es_Hundido(){
+		Assert.assertEquals(EstadoDisparo.Hundido, estadoDisparo);
+	}
+
 
 
 
