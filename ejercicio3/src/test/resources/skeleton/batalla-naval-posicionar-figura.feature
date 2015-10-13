@@ -1,8 +1,13 @@
 Feature: PosicionarFigura
 
-  Scenario: Posiciono satisfactoriamente un destructor en el tablero en una posicion que estaba libre
+  Scenario: Posiciono satisfactoriamente un destructor de forma horizontal en el tablero en una posicion que estaba libre
+    Given la posicion (C,5) esta libre y la posicion (D,6) esta libre
+    When jugador posiciona la figura "acorazado" en la posicion (C,5) de forma "horizontal"
+    Then la operacion se realiza correctamente
+
+  Scenario: Posiciono satisfactoriamente un destructor de forma vertical en el tablero en una posicion que estaba libre
     Given la posicion (C,5) esta libre y la posicion (C,6) esta libre
-    When jugador posiciona la figura "destructor" en la posicion (C,5) de forma "horizontal"
+    When jugador posiciona la figura "acorazado" en la posicion (C,5) de forma "vertical"
     Then la operacion se realiza correctamente
 
   Scenario: No se puede posicionar un destructor en el tablero si la posicion inicial esta ocupada
