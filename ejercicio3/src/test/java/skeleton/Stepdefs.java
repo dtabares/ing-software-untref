@@ -77,6 +77,11 @@ public class Stepdefs {
 	public void el_resultado_es_Agua() {
 		Assert.assertEquals(EstadoDisparo.Agua, estadoDisparo);
 	}
+	
+	@Then("^el resultado es Disparo Fuera del Tablero No permitido$")
+	public void el_resultado_es_Disparo_Fuera_del_Tablero_No_permitido() {
+		Assert.assertEquals(EstadoDisparo.FueraDeRango, estadoDisparo);
+	}
 
 
 }
