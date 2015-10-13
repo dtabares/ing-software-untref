@@ -36,4 +36,9 @@ public class BatallaNaval {
 		return mapa.getEstadoPosicion(posX, posY - 1);
 	}
 
+
+	public EstadoDisparo disparar(char arg1, int arg2) {
+		return mapa.recibirDisparo(arg1, arg2);
+	}
+
 }

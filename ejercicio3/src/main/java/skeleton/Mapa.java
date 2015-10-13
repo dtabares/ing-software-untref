@@ -1,15 +1,17 @@
 package skeleton;
 
-import javax.xml.ws.soap.AddressingFeature.Responses;
+import java.util.HashMap;
 
 public class Mapa {
 	
 	private int[][] tablero;
 	private char[] posicionEnEjeX;
+	private HashMap<Posicion, Barco> mapaDeBarcos;
 	
 	public Mapa(){
 		this.inicializarPosicionEnEjeX();
 		this.inicializarTablero();
+		this.mapaDeBarcos = new HashMap<>();
 	}
 	
 	/*
@@ -87,8 +89,9 @@ public class Mapa {
 	}
 
 
-	private void marcarComoOcupado(int x, int y) {
+	private void agregarBarco(int x, int y, Barco barco) {
 			this.tablero[x][y] = 1;	
+			this.mapaDeBarcos.put(new Posicion(x, y), barco);
 	}
 	
 	public EstadoPosicionamiento posicionarBarcoDeFormaHorizontal(Barco barco, char posX, int posY){
@@ -108,7 +111,7 @@ public class Mapa {
 		posicionEnEjeXAuxiliar = posicionInicialEnEjeX;
 		for(int i=0; i<longitudBarco;i++){
 			posicionEnEjeXAuxiliar = posicionInicialEnEjeX + i;
-			this.marcarComoOcupado(posicionEnEjeXAuxiliar, posY);
+			this.agregarBarco(posicionEnEjeXAuxiliar, posY, barco);
 		}
 		
 		return EstadoPosicionamiento.OK;
@@ -133,9 +136,46 @@ public class Mapa {
 		
 		for(int i=0; i<longitudBarco;i++){
 			posicionAuxiliarEnEjeY = posicionInicialEnEjeY + i;
-			this.marcarComoOcupado(x, posicionAuxiliarEnEjeY);
+			this.agregarBarco(x, posicionAuxiliarEnEjeY, barco);
 		}
 		
 		return EstadoPosicionamiento.OK;
+	}
+	
+	private Barco getBarcoAtPos(Posicion posicion){
+		return this.mapaDeBarcos.get(posicion);
+	}
+	
+	public EstadoDisparo recibirDisparo(char x, int y){
+		if(this.estaDentroDelRango(this.getPosicionEjeX(x), y)){
+			if (this.getBarcoAtPos(new Posicion(this.getPosicionEjeX(x), y)) == null){
+				return EstadoDisparo.Agua;
+			}
+			else{
+				return this.evaluarDanio(this.getBarcoAtPos(new Posicion(this.getPosicionEjeX(x), y)));
+			}
+		}
+		else{
+			return EstadoDisparo.FueraDeRango;
+		}
+	}
+	
+	private EstadoDisparo evaluarDanio(Barco barco){
+		barco.incrementarDisparosRecibidos();
+		if(barco.getDisparosRecibidos() >= barco.getLongitud()){
+			return EstadoDisparo.Hundido;
+		}
+		else{
+			return EstadoDisparo.Tocado;
+		}
+	}
+	
+	private boolean estaDentroDelRango(int x, int y){
+		if (x>10 || x<1 || y>10||y<1){
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 }
