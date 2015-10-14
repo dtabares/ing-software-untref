@@ -13,3 +13,6 @@ hs_err_pid*
 
 #Ignore target directory
 */target/
+
+#Ignore IDE Settings
+.settings
