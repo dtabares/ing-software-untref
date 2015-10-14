@@ -1,7 +1,8 @@
-package skeleton;
+package untref;
 
 import org.junit.Assert;
 import org.junit.Test;
+
 
 public class MapaTest {
 	

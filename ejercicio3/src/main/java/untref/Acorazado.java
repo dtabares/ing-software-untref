@@ -1,4 +1,4 @@
-package skeleton;
+package untref;
 
 public class Acorazado extends Barco {
 	

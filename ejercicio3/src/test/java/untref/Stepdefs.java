@@ -1,7 +1,10 @@
-package skeleton;
+package untref;
 
 import org.junit.Assert;
 
+import untref.BatallaNaval;
+import untref.EstadoDisparo;
+import untref.EstadoPosicionamiento;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

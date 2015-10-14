@@ -1,4 +1,4 @@
-package skeleton;
+package untref;
 
 public abstract class Barco {
 

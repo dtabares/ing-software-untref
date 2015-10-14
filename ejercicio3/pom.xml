@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cucumber</groupId>
-    <artifactId>batalla-naval-java-skeleton</artifactId>
+    <artifactId>batalla-naval-java-untref</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
     <name>Batalla-Naval-Java Skeleton</name>

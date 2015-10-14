@@ -1,4 +1,4 @@
-package skeleton;
+package untref;
 
 public enum EstadoDisparo {
 	
