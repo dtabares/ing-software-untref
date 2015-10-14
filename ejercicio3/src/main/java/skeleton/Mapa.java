@@ -126,21 +126,12 @@ public class Mapa {
 				return EstadoDisparo.Agua;
 			}
 			else{
-				return this.evaluarDanio(barco);
+				barco.incrementarDisparosRecibidos();
+				return barco.evaluarDanio();
 			}
 		}
 		else{
 			return EstadoDisparo.FueraDeRango;
-		}
-	}
-	
-	private EstadoDisparo evaluarDanio(Barco barco){
-		barco.incrementarDisparosRecibidos();
-		if(barco.getDisparosRecibidos() >= barco.getLongitud()){
-			return EstadoDisparo.Hundido;
-		}
-		else{
-			return EstadoDisparo.Tocado;
 		}
 	}
 	

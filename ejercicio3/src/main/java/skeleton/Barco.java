@@ -18,6 +18,15 @@ public abstract class Barco {
 		this.disparosRecibidos++;
 	}
 	
+	protected EstadoDisparo evaluarDanio(){
+		if(this.getDisparosRecibidos() >= this.getLongitud()){
+			return EstadoDisparo.Hundido;
+		}
+		else{
+			return EstadoDisparo.Tocado;
+		}
+	}
+	
 	
 	
 
